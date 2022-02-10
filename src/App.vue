@@ -147,6 +147,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: white;
   background: linear-gradient(180deg, var(--gradient-top) 0%, var(--gradient-bottom) 100%) fixed;
+  min-height: 100vh;
 }
 
 img {

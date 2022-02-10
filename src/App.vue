@@ -5,7 +5,7 @@
       <h1>Find a Dog</h1>
     </header>
     <section>
-      <input type="text" @keyup="clearImages" v-model="dogString">
+      <input type="text" autocomplete="off" spellcheck="false" @keyup="clearImages" v-model="dogString">
       <button class="search-dogs" @click="fetchBreeds">Go</button>
       <div class="results" v-if="foundBreeds">
         <h4>Results</h4>
@@ -78,7 +78,8 @@ export default {
         this.errorText = 'Error: No search entered';
         this.foundBreeds = null;
       } else {
-        this.foundBreeds = this.allBreeds.filter(breed => breed.indexOf(this.dogString) !== -1);
+        const string = this.dogString.toLowerCase();
+        this.foundBreeds = this.allBreeds.filter(breed => breed.indexOf(string) !== -1);
         if (this.foundBreeds.length === 0) {
           this.errorText = 'Error: No dogs found';
           this.foundBreeds = null;
